@@ -26,6 +26,14 @@ body{
 	padding: 16px;
 	box-sizing: border-box;
 }
+#mainViewContainer{
+	margin-left: 220px;
+	padding-bottom: 90px;
+	width:calc(100% - 220px);
+}
+#mainContent{
+	padding:0 20px;
+}
 #nowPlayingLeft,
 #nowPlayingRight{
 	width: 30%;
@@ -156,11 +164,11 @@ body{
 	font-size: 14px;
 	font-weight: 700;
 	display: block;
-	letter-spacing: 1px;s
+	letter-spacing: 1px;
 }
 .navItemLink{
 	text-decoration: none;
-	color: #a0a0a0;
+	color:#a0a0a0;
 }
 .navItemLink:hover{
 	color: white;
