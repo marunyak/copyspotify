@@ -4,7 +4,7 @@
         private $id;
         private $name;
 
-        public function __constructor($con,$id){
+        public function __construct($con,$id){
             $this->con = $con;
             $this->id = $id;
         }
