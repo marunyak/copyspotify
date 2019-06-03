@@ -1,7 +1,7 @@
 <?php 
 
 include "includes/header.php";
-include "includes/classes/Artist.php";  
+
 
 if(isset($_GET['id']) && !empty($_GET['id'])){
     $albumId = $_GET['id'];
