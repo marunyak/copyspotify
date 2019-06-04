@@ -26,15 +26,26 @@ $artist = $album->getArtist();
 </div>
 
 <div class="tracklistContainer">
-    <div class="tracklist">
+    <ul class="tracklist">
         <?php
             $songIdArray = $album->getSongsIds();
-
+            $i = 1;
             foreach($songIdArray as $songId){
-                echo $songId.'<br>';
+                $albumSong = new Song($con,$songId);
+                $albumArtist = $albumSong->getTitle();
+
+                echo "
+                    <li class='tracklistRow'>
+                    <div class='trackCount'>
+                            <img class='play' src='assets/images/icons/play-white.png'>
+                            <span class='trackNumber'>$i</span>
+                        </div>
+                    </li>
+                ";
+                $i++;
             }
         ?>
-    </div>
+    </ul>
 </div>
 
 <?php include("includes/footer.php");?>

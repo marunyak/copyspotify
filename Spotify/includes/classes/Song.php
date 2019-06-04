@@ -10,7 +10,7 @@
         private $genre;
         private $path;
 
-        public function __construct(){
+        public function __construct($con,$id){
             $this->con = $con;
             $this->id  = $id;
 
