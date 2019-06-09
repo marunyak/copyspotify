@@ -40,11 +40,11 @@
 					data:{albumId:track.album},
 					success:function(data){
 						var album = JSON.parse(data);
-						$(".albumArtwork").text(album.artworkPath);
+						$(".albumArtwork").attr('src',album.artworkPath);
 					}
 				});
 
-				audioElement.setTrack(track.path);
+				audioElement.setTrack(track);
 				audioElement.play();
 			}
 		});
@@ -53,6 +53,18 @@
 	}
 
 	function playSong(){
+
+		if(audioElement.audio.currentTime  == 0){
+			$.ajax({
+				type:"POST",
+				url:"includes/handlers/updatePlays.php",
+				data:{songId:audioElement.currentlyPlaying.id},
+				success:function(){
+
+				}
+			});
+		}	
+
 		$(".controlButton.play").hide();
 		$(".controlButton.pause").show();
 		audioElement.play();
@@ -95,12 +107,12 @@
 							<img src="assets/images/icons/previous.png" alt="Previous">
 						</button>
 
-						<button class="controlButton play" title="Play button">
+						<button class="controlButton play" title="Play button" style="display: none;">
 							<img src="assets/images/icons/play.png" alt="Play" onclick="playSong()">
 						</button>
 
-						<button class="controlButton pause" title="Pause button" style="display: none;" onclick="pauseSong()">
-							<img src="assets/images/icons/pause.png" alt="Pause">
+						<button class="controlButton pause" title="Pause button" >
+							<img src="assets/images/icons/pause.png" alt="Pause" onclick="pauseSong()">
 						</button>
 
 						<button class="controlButton next" title="Next button">
