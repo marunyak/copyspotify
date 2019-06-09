@@ -34,6 +34,16 @@
 					}
 				});
 
+				$.ajax({
+					type:"POST",
+					url:"includes/handlers/getAlbum_json.php",
+					data:{albumId:track.album},
+					success:function(data){
+						var album = JSON.parse(data);
+						$(".albumArtwork").text(album.artworkPath);
+					}
+				});
+
 				audioElement.setTrack(track.path);
 				audioElement.play();
 			}
