@@ -16,8 +16,15 @@
 	});
 
 	function setTrack(trackId,currentPlayList,play){
-		audioElement.setTrack("assets/music/face2reality.mp3");
-		//var isPlaying = audioElement.audio.currentTime > 0 && !audioElement.audio.paused && !audioElement.audio.ended;
+		$.ajax({
+			type:"POST",
+			url:"includes/handlers/getSong_json.php",
+			data:{songId:trackId},
+			success:function(data){
+					console.log(data);
+			}
+		});
+
 
 		if (play) {
 			audioElement.play();
