@@ -21,28 +21,15 @@
 <head>
 	<title>Welcome to Spotify!</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="assets/js/script.js"></script>
 </head>
 <body>
-<script>
-	var audioElement = new Audio();
-	audioElement.setTrack('assets/music/thank_u_next.mp3');
-	var playPromise = audioElement.audio.play();
-
-	// if (playPromise !== undefined) {
-	// 	playPromise.then(_ => {
-	// 	// Automatic playback started!
-	// 	// Show playing UI.
-	// 	audioElement.audio.play();
-	// 	})
-	// 	.catch(error => {
-	// 	// Auto-play was prevented
-	// 	// Show paused UI.
-	// 	audioElement.audio.pause();
-	// 	});
-	// }
-
-</script>
+<!-- <script>
+	 audioElement = new Audio();
+	// audioElement.setTrack('assets/music/thank_u_next.mp3');
+	// var playPromise = audioElement.audio.play();
+</script> -->
 <div id="mainContainer">
 	<div id="topContainer">
 		<?php include "includes/navBarContainer.php";?>
