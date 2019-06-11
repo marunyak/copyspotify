@@ -27,6 +27,32 @@
 			timeFromOffset(e,this);
 			mouseDown = false;
 		});
+
+
+		$(".volumeBar .progressBar").mousedown(function(){
+			mouseDown = true;
+		});
+
+		$(".volumeBar .progressBar").mousemove(function(e){
+			if(mouseDown){
+				var percentage = e.offsetX / $(this).width();
+
+				if(percentage >= 0 && percentage <= 1){
+					audioElement.audio.volume = percentage;
+				}
+			}
+		});
+
+		$(".volumeBar .progressBar").mouseup(function(e){
+			var percentage = e.offsetX / $(this).width();
+				
+				if(percentage >= 0 && percentage <= 1){
+					audioElement.audio.volume = percentage;
+				}
+			}
+		});
+
+
 	});
 
 	function timeFromOffset(mouse,progressBar){
