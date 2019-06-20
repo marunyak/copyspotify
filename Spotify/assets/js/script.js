@@ -1,8 +1,11 @@
 var currentPlayList = [];
+var shufflePlayList = [];
+var newPlayList;
 var audioElement;
 var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
+var shuffle = false;
 
 function formatTime(seconds){
     var time = Math.round(seconds);
@@ -38,7 +41,8 @@ function Audio(){
     });
 
     this.setTrack = function(track){
-        this.audio.currentlyPlaying = track;
+        //this.audio.currentlyPlaying = track;
+        this.currentlyPlaying = track;
         this.audio.src = track.path;
         this.audio.type = "audio/mpeg";
     }
