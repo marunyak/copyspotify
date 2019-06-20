@@ -16,12 +16,17 @@
 
             $query = mysqli_query($this->con,"SELECT * FROM songs WHERE id = '{$this->id}'");
             $this->mysqliData = mysqli_fetch_array($query);
+            $this->id         = $this->mysqliData['id'];
             $this->title      = $this->mysqliData['title'];
             $this->artistId   = $this->mysqliData['artist'];
             $this->albumId    = $this->mysqliData['album'];
             $this->duration   = $this->mysqliData['duration'];
             $this->genre      = $this->mysqliData['genre'];
             $this->path       = $this->mysqliData['path'];
+        }
+
+        public function getId(){
+            return $this->id;
         }
 
         public function getTitle(){

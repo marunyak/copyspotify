@@ -133,11 +133,12 @@
 				});
 
 				audioElement.setTrack(track);
-				audioElement.play();
 			}
 		});
 
-
+		if(play){
+			audioElement.play();
+		}
 	}
 
 	function playSong(){
@@ -182,7 +183,6 @@
 		$(".controlButton.shuffle img").attr("src","assets/images/icons/"+imageName);
 
 		if(shuffle){
-			//Find track when shuffle = true
 			shuffleArray(shufflePlayList);
 			currentIndex = shufflePlayList.indexOf(audioElement.currentlyPlaying.id);
 		}

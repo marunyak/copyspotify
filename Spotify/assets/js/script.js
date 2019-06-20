@@ -1,11 +1,23 @@
 var currentPlayList = [];
 var shufflePlayList = [];
+var tempPlayList = [];
 var newPlayList;
 var audioElement;
+var userLoggedIn;
 var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
+
+function openPage(url){
+    if(url.indexOf('?') == -1){
+        url = url + "?";
+    }
+
+    var encodedUrl = encodeURI(url+ "&userLoggedIn="+userLoggedIn);
+    $("#mainContent").load(encodedUrl);
+}
+
 
 function formatTime(seconds){
     var time = Math.round(seconds);
