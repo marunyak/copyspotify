@@ -133,12 +133,13 @@
 				});
 
 				audioElement.setTrack(track);
+				if(play){
+					playSong();
+				}
 			}
 		});
 
-		if(play){
-			audioElement.play();
-		}
+		
 	}
 
 	function playSong(){
@@ -148,9 +149,6 @@
 				type:"POST",
 				url:"includes/handlers/updatePlays.php",
 				data:{songId:audioElement.currentlyPlaying.id},
-				success:function(data){
-
-				}
 			});
 		}	
 
