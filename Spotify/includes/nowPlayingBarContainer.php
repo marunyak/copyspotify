@@ -118,8 +118,8 @@
 					data:{artistId:track.artist},
 					success:function(data){
 						var artist = JSON.parse(data);
-						$(".artistName span").text(artist.name);
-						$(".artistName span").attr("onclick", "openPage('artist.php?id="+artist.id+"')");
+						$(".trackInfo .artistName span").text(artist.name);
+						$(".trackInfo .artistName span").attr("onclick", "openPage('artist.php?id="+artist.id+"')");
 					}
 				});
 
@@ -129,9 +129,9 @@
 					data:{albumId:track.album},
 					success:function(data){
 						var album = JSON.parse(data);
-						$(".albumArtwork").attr('src',album.artworkPath);
-						$(".albumArtwork").attr("onclick", "openPage('album.php?id="+album.id+"')");
-						$(".trackName span").attr("onclick", "openPage('album.php?id="+album.id+"')");
+						$(".content .albumArtwork").attr('src',album.artworkPath);
+						$(".content .albumArtwork").attr("onclick", "openPage('album.php?id="+album.id+"')");
+						$(".trackInfo .trackName span").attr("onclick", "openPage('album.php?id="+album.id+"')");
 					}
 				});
 

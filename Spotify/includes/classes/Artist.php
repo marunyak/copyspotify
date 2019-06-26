@@ -8,6 +8,12 @@
             $this->id = $id;
         }
 
+        public function getId(){
+            $artistQuery = mysqli_query($this->con, "SELECT id FROM artists WHERE id ='{$this->id}'");
+            $artist      = mysqli_fetch_array($artistQuery);
+            return $artist['id'];
+        }
+
         public function getName(){
             $artistQuery = mysqli_query($this->con, "SELECT * FROM artists WHERE id ='{$this->id}'");
             $artist      = mysqli_fetch_array($artistQuery);
