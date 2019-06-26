@@ -21,6 +21,9 @@ function openPage(url){
     history.pushState(null,null,url);
 }
 
+function playFirstSong(){
+    setTrack(tempPlayList[0],tempPlayList,true);
+}
 
 function formatTime(seconds){
     var time = Math.round(seconds);

@@ -119,6 +119,7 @@
 					success:function(data){
 						var artist = JSON.parse(data);
 						$(".artistName span").text(artist.name);
+						$(".artistName span").attr("onclick", "openPage('artist.php?id="+artist.id+"')");
 					}
 				});
 
@@ -129,6 +130,8 @@
 					success:function(data){
 						var album = JSON.parse(data);
 						$(".albumArtwork").attr('src',album.artworkPath);
+						$(".albumArtwork").attr("onclick", "openPage('album.php?id="+album.id+"')");
+						$(".trackName span").attr("onclick", "openPage('album.php?id="+album.id+"')");
 					}
 				});
 
@@ -206,15 +209,15 @@
 			<div id="nowPlayingLeft">
 				<div class="content">
 					<span class="albumLink">
-						<img src="https://muzonov.net/uploads/posts/2018-04/medium/1523086657_zolxt3427-s.jpg" class="albumArtwork">
+						<img role="link" tabindex="0" class="albumArtwork">
 					</span>
 					<div class="trackInfo">
 						<div class="trackName">
-							<span>Hard 2 face reality</span>
+							<span role="link" tabindex="0">Hard 2 face reality</span>
 						</div>
 
 						<div class="artistName">
-							<span>Poo Bear(feat Justin Bieber)</span>
+							<span role="link" tabindex="0">Poo Bear(feat Justin Bieber)</span>
 						</div>
 					</div>
 				</div>
