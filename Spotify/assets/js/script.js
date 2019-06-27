@@ -24,6 +24,24 @@ function openPage(url){
     history.pushState(null,null,url);
 }
 
+function createPlaylist(){
+    var songAdd = prompt("Please enter the name for your playlist");
+    if(songAdd != null){
+        $.ajax({
+            type:"POST",
+            url:"includes/handlers/createPlaylist.php",
+            data:{name:songAdd,username:userLoggedIn},
+            success:function(date){
+                if(date != ""){
+                    alert(date);
+                    return;
+                }
+                openPage("yourMusic.php");
+            }
+        });
+    }
+}
+
 function playFirstSong(){
     setTrack(tempPlayList[0],tempPlayList,true);
 }
