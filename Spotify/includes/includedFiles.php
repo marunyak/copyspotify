@@ -5,9 +5,10 @@
         include("includes/classes/Artist.php");  
         include("includes/classes/Album.php"); 
         include("includes/classes/Song.php");
+        include("includes/classes/Playlist.php");
 
-        if(isset($_GET['userLoggedIn']) && !empty($_GET['userLoggedIn'])){
-            $userLoggedIn = new User($con, $_GET['userLoggedIn']);
+        if(isset($_GET['username']) && !empty($_GET['username'])){
+            $userLoggedIn = new User($con, $_GET['username']);
         }
         else {
             echo "username varible is not pass into this page, please on a JS";
