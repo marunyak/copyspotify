@@ -8,9 +8,12 @@ var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
-
+var timer;
 
 function openPage(url){
+    if(timer != null){
+        clearTimeout(timer);
+    }
     if(url.indexOf('?') == -1){
         url = url + "?";
     }
