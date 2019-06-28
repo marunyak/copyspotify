@@ -21,7 +21,7 @@
             }
             $playlist = new Playlist($con, $row);
             echo "
-            <div class='gridViewItem'>
+            <div class='gridViewItem' role='link' tabindex='0' onclick='openPage(\"playlist.php?id=".$playlist->getId()."\")'>
                 <div class='playlistImage'><img  src='assets/images/artwork/1.jpg'></div>
                 <div class='gridViewInfo'>".$playlist->getName()."</div>
             </div>";
