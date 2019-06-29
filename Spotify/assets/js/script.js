@@ -10,6 +10,18 @@ var repeat = false;
 var shuffle = false;
 var timer;
 
+
+$(window).scroll(function(){
+    hideOptionsMenu();
+});
+
+$(document).click(function(click){
+    var targett= $(click.target);
+    if(!targett.hasClass("item") && !targett.hasClass("optionsButton")){
+        hideOptionsMenu();
+    }
+});
+
 function openPage(url){
     if(timer != null){
         clearTimeout(timer);
@@ -22,6 +34,32 @@ function openPage(url){
     $("#mainContent").load(encodedUrl);
     $("body").scrollTop(0);
     history.pushState(null,null,url);
+}
+
+function hideOptionsMenu(){
+    var menu = $('.optionsMenu');
+    if(menu.css("display") != "none"){
+        menu.css("display","none");
+    }
+}
+
+function showOptionsMenu(button){
+    var menu = $('.optionsMenu');
+    var menuWidth = menu.width();
+
+    var scrollTopp = $(window).scrollTop();//100
+    var offsetElement = $(button).offset().top;//329
+    
+
+
+    var top = scrollTopp >= offsetElement?scrollTopp - offsetElement:offsetElement - scrollTopp;
+
+    console.log("SCROLLTOP:"+scrollTopp);
+    console.log("OffsetElement:"+offsetElement);
+
+    var left = $(button).position().left;
+
+    menu.css({"top":top+"px","left":left - menuWidth +"px","display":"inline"});
 }
 
 function createPlaylist(){
