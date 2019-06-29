@@ -56,6 +56,22 @@ function openPage(url){
     history.pushState(null,null,url);
 }
 
+function removeFromPlaylist(button,playlistId){
+    var songId = $(button).prevAll(".songId").val();
+    $.ajax({
+        type:"POST",
+        url:"includes/handlers/removeFromPlaylist.php",
+        data:{playlistId:playlistId,songId:songId},
+        success:function(date){
+            if(date != ""){
+                alert(date);
+                return;
+            }
+            openPage("playlist.php?id="+playlistId);
+        }
+    });
+}
+
 function hideOptionsMenu(){
     var menu = $('.optionsMenu');
     if(menu.css("display") != "none"){

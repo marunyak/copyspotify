@@ -72,4 +72,5 @@ $owner    = new User($con,$playlist->getOwner());
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con,$userLoggedIn->getUserName());?>
+    <div class="item" onclick="removeFromPlaylist(this,'<?php echo $playlistId;?>')">Remove From Playlist</div>
 </nav>
