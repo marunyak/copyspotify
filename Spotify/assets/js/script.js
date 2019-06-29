@@ -22,6 +22,26 @@ $(document).click(function(click){
     }
 });
 
+$(document).on("change","select.playlist",function(){
+    var select = $(this);
+    var playlistId = select.val();
+    var songId = select.prev(".songId").val();
+
+    $.ajax({
+        type:"POST",
+        url:"includes/handlers/addToPlaylist.php",
+        data:{songId:songId,playlistId:playlistId},
+        success:function(date){
+            if(date != ""){
+                alert(date);
+                return;
+            }
+            hideOptionsMenu();
+            select.val("");
+        }
+    });
+});
+
 function openPage(url){
     if(timer != null){
         clearTimeout(timer);
@@ -44,19 +64,15 @@ function hideOptionsMenu(){
 }
 
 function showOptionsMenu(button){
+    var songId = $(button).prevAll(".songId").val();
     var menu = $('.optionsMenu');
     var menuWidth = menu.width();
+    menu.find(".songId").val(songId);
 
-    var scrollTopp = $(window).scrollTop();//100
-    var offsetElement = $(button).offset().top;//329
+    var scrollTopp = $(window).scrollTop();
+    var offsetElement = $(button).offset().top;
     
-
-
     var top = scrollTopp >= offsetElement?scrollTopp - offsetElement:offsetElement - scrollTopp;
-
-    console.log("SCROLLTOP:"+scrollTopp);
-    console.log("OffsetElement:"+offsetElement);
-
     var left = $(button).position().left;
 
     menu.css({"top":top+"px","left":left - menuWidth +"px","display":"inline"});
