@@ -56,6 +56,14 @@ function openPage(url){
     history.pushState(null,null,url);
 }
 
+function updateEmail(emailClass){
+    var emailValue = $("."+emailClass).val();
+    $.post("includes/handlers/updateEmail.php",{email:emailValue,username:userLoggedIn})
+    .done(response){
+        $("."+emailClass).nextUntil(".message").text(response);
+    }
+}
+
 function logout(){
     $.post("includes/handlers/logout.php",function(){
         location.reload();
