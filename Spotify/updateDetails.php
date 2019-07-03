@@ -11,10 +11,10 @@
 
     <div class="container">
         <h2>PASSWORD</h2>
-        <input type="password" class="password" name="Oldpassword" placeholder="Current password">
-        <input type="password" class="password" name="Newpassword1" placeholder="New password">
-        <input type="password" class="password" name="Newpassword2" placeholder="Confirm password">
+        <input type="password" class="password Oldpassword" name="Oldpassword" placeholder="Current password">
+        <input type="password" class="password Newpassword1" name="Newpassword1" placeholder="New password">
+        <input type="password" class="password Newpassword2" name="Newpassword2" placeholder="Confirm password">
         <span class="message"></span>
-        <button class="button" onclick="">SAVE</button>
+        <button class="button" onclick="updatePassword('Oldpassword','Newpassword1','Newpassword2')">SAVE</button>
     </div>
 </div>
