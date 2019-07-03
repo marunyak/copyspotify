@@ -58,10 +58,14 @@ function openPage(url){
 
 function updateEmail(emailClass){
     var emailValue = $("."+emailClass).val();
-    $.post("includes/handlers/updateEmail.php",{email:emailValue,username:userLoggedIn})
-    .done(response){
-        $("."+emailClass).nextUntil(".message").text(response);
-    }
+    $.ajax({
+        type:"POST",
+        url:"includes/handlers/updateEmail.php",
+        data:{email:emailValue,username:userLoggedIn},
+        success:function(response){
+        $("."+emailClass).nextAll(".message").text(response);
+        }
+    });
 }
 
 function logout(){
